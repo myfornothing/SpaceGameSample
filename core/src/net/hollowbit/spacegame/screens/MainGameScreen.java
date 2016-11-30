@@ -1,8 +1,5 @@
 package net.hollowbit.spacegame.screens;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
@@ -21,23 +18,26 @@ import net.hollowbit.spacegame.entities.Bullet;
 import net.hollowbit.spacegame.entities.Explosion;
 import net.hollowbit.spacegame.tools.CollisionRect;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class MainGameScreen implements Screen {
 	
-	public static final float SPEED = 300;
+	private static final float SPEED = 300;
 	
-	public static final float SHIP_ANIMATION_SPEED = 0.5f;
-	public static final int SHIP_WIDTH_PIXEL = 17;
-	public static final int SHIP_HEIGHT_PIXEL = 32;
-	public static final int SHIP_WIDTH = SHIP_WIDTH_PIXEL * 3;
-	public static final int SHIP_HEIGHT = SHIP_HEIGHT_PIXEL * 3;
+	private static final float SHIP_ANIMATION_SPEED = 0.5f;
+	private static final int SHIP_WIDTH_PIXEL = 17;
+	private static final int SHIP_HEIGHT_PIXEL = 32;
+	private static final int SHIP_WIDTH = SHIP_WIDTH_PIXEL * 3;
+	private static final int SHIP_HEIGHT = SHIP_HEIGHT_PIXEL * 3;
 	
-	public static final float ROLL_TIMER_SWITCH_TIME = 0.25f;
-	public static final float SHOOT_WAIT_TIME = 0.3f;
+	private static final float ROLL_TIMER_SWITCH_TIME = 0.25f;
+	private static final float SHOOT_WAIT_TIME = 0.3f;
 	
-	public static final float MIN_ASTEROID_SPAWN_TIME = 0.05f;
-	public static final float MAX_ASTEROID_SPAWN_TIME = 0.1f;
+	private static final float MIN_ASTEROID_SPAWN_TIME = 0.05f;
+	private static final float MAX_ASTEROID_SPAWN_TIME = 0.1f;
 	
-	Animation[] rolls;
+	private Animation[] rolls;
 	
 	float x;
 	float y;
@@ -68,7 +68,7 @@ public class MainGameScreen implements Screen {
 	
 	boolean showControls = true;
 	
-	public MainGameScreen (SpaceGame game) {
+	public MainGameScreen(SpaceGame game) {
 		this.game = game;
 		y = 15;
 		x = SpaceGame.WIDTH / 2 - SHIP_WIDTH / 2;
